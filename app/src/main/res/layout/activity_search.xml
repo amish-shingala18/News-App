@@ -8,6 +8,7 @@
     tools:context=".activity.SearchActivity">
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedSearch"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,16 +39,17 @@
                 android:text="Discover"
                 android:textSize="18dp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-                app:layout_constraintStart_toEndOf="@+id/imageView6"
-                app:layout_constraintTop_toTopOf="@+id/imageView6" />
+                app:layout_constraintBottom_toBottomOf="@+id/imgSearchBack"
+                app:layout_constraintStart_toEndOf="@+id/imgSearchBack"
+                app:layout_constraintTop_toTopOf="@+id/imgSearchBack" />
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/imgSearchBack"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
+                style="@style/iconTheme"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/back" />
@@ -62,7 +64,7 @@
                 app:cardCornerRadius="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView6">
+                app:layout_constraintTop_toBottomOf="@+id/imgSearchBack">
 
                 <SearchView
                     android:id="@+id/svNews"
@@ -96,4 +98,38 @@
         app:layout_constraintEnd_toEndOf="@+id/imgSearchNoResult"
         app:layout_constraintStart_toStartOf="@+id/imgSearchNoResult"
         app:layout_constraintTop_toBottomOf="@+id/imgSearchNoResult" />
+    <ImageView
+        android:id="@+id/imgSearchNoNet"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="100dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/no_wifi" />
+
+    <TextView
+        android:id="@+id/txtNoSearchNet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Interent Connection"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/imgSearchNoNet"
+        app:layout_constraintStart_toStartOf="@+id/imgSearchNoNet"
+        app:layout_constraintTop_toBottomOf="@+id/imgSearchNoNet" />
+
+    <TextView
+        android:id="@+id/txtSearchNoNet2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="Please check you connection and try again later"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/imgSearchNoNet"
+        app:layout_constraintStart_toStartOf="@+id/imgSearchNoNet"
+        app:layout_constraintTop_toBottomOf="@+id/txtNoSearchNet" />
 </androidx.constraintlayout.widget.ConstraintLayout>

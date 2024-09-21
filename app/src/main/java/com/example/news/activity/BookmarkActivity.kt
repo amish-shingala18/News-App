@@ -25,6 +25,12 @@ class BookmarkActivity : AppCompatActivity() {
             insets
         }
         setAdapter()
+        initClick()
+    }
+    private fun initClick(){
+        binding.imgBookmarkBack.setOnClickListener {
+            finish()
+        }
     }
     private fun setAdapter(){
         newsAdapter = NewsAdapter(bookmarkList)

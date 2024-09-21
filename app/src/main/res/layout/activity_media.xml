@@ -8,8 +8,15 @@
     tools:context=".activity.MediaActivity">
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedMedia"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -23,7 +30,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6">
+                app:layout_constraintTop_toBottomOf="@+id/txtCanada">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cvCNN"
@@ -107,27 +114,27 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
             <ImageView
-                android:id="@+id/imageView10"
+                android:id="@+id/imgMediaBack"
+                style="@style/iconTheme"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                style="@style/iconTheme"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/back" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/txtCanada"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="Channels"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView10"
-                app:layout_constraintStart_toEndOf="@+id/imageView10"
-                app:layout_constraintTop_toTopOf="@+id/imageView10" />
+                app:layout_constraintBottom_toBottomOf="@+id/imgMediaBack"
+                app:layout_constraintStart_toEndOf="@+id/imgMediaBack"
+                app:layout_constraintTop_toTopOf="@+id/imgMediaBack" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -142,4 +149,38 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+    <ImageView
+        android:id="@+id/imgMediaNoNet"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="100dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/no_wifi" />
+
+    <TextView
+        android:id="@+id/txtNoMediaNet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Interent Connection"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/imgMediaNoNet"
+        app:layout_constraintStart_toStartOf="@+id/imgMediaNoNet"
+        app:layout_constraintTop_toBottomOf="@+id/imgMediaNoNet" />
+
+    <TextView
+        android:id="@+id/txtMediaNoNet2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="Please check you connection and try again later"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/imgMediaNoNet"
+        app:layout_constraintStart_toStartOf="@+id/imgMediaNoNet"
+        app:layout_constraintTop_toBottomOf="@+id/txtNoMediaNet" />
 </androidx.constraintlayout.widget.ConstraintLayout>

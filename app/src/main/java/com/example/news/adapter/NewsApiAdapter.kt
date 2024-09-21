@@ -36,6 +36,7 @@ class NewsApiAdapter(private var list :MutableList<ArticlesItem>) : RecyclerView
             intent.putExtra("newsImage",list[position].urlToImage)
             intent.putExtra("newsDate",list[position].publishedAt)
             intent.putExtra("newsAuthor",list[position].author)
+            intent.putExtra("newsContent",list[position].content)
             holder.itemView.context.startActivity(intent)
         }
     }

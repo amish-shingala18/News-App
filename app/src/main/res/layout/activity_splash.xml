@@ -26,6 +26,7 @@
         android:layout_marginTop="20dp"
         android:text="Stay Updated with QuickNews"
         android:textSize="18sp"
+        android:textColor="@color/bottom_nav"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />

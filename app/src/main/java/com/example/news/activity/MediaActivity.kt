@@ -1,5 +1,6 @@
 package com.example.news.activity
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -7,6 +8,7 @@ import com.example.news.R
 import com.example.news.adapter.NewsApiAdapter
 import com.example.news.databinding.ActivityMediaBinding
 import com.example.news.domain.ApiClient.Companion.getApi
+import com.example.news.domain.ApplicationNetwork
 import com.example.news.interfaces.ApiInterface
 import com.example.news.model.ArticlesItem
 import com.example.news.model.NewsApiModel
@@ -28,6 +30,20 @@ class MediaActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        (application as ApplicationNetwork).liveData.observe(this@MediaActivity){
+            if(it){
+                binding.nestedMedia.visibility = View.VISIBLE
+                binding.imgMediaNoNet.visibility = View.GONE
+                binding.txtNoMediaNet.visibility = View.GONE
+                binding.txtMediaNoNet2.visibility = View.GONE
+            }
+            else{
+                binding.nestedMedia.visibility = View.GONE
+                binding.imgMediaNoNet.visibility = View.VISIBLE
+                binding.txtNoMediaNet.visibility = View.VISIBLE
+                binding.txtMediaNoNet2.visibility = View.VISIBLE
+            }
+        }
         initClick()
     }
     private fun initClick(){
@@ -42,6 +58,9 @@ class MediaActivity : AppCompatActivity() {
         }
         binding.cvNBC.setOnClickListener {
             mediaApi("nbc-news")
+        }
+        binding.imgMediaBack.setOnClickListener {
+            finish()
         }
     }
     private fun mediaApi(selectedSource:String){

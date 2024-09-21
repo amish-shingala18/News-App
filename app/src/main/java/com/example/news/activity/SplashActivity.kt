@@ -8,10 +8,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.news.MainActivity
 import com.example.news.R
+import com.example.news.helper.CountryHelper
+import com.example.news.helper.SharedHelper
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
+    private val countryHelper=CountryHelper()
+    private var isSelected:String?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,9 +30,17 @@ class SplashActivity : AppCompatActivity() {
     }
     private fun handler() {
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this@SplashActivity, CountryActivity::class.java)
-            startActivity(intent)
-            finish()
+            isSelected=countryHelper.getCountry(this@SplashActivity)
+            if(isSelected==null){
+                val intent = Intent(this@SplashActivity, CountryActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+            else{
+                val intent = Intent(this@SplashActivity, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         },5000)
     }
 }

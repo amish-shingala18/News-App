@@ -7,27 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".activity.NewsDetailActivity">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imgDetailNews"
+        android:layout_width="0dp"
+        android:layout_height="500dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imgDetailNews"
-                android:layout_width="0dp"
-                android:layout_height="400dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/volley" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/volley" />
 
             <TextView
                 android:id="@+id/txtDetailNewsTitle"
@@ -43,22 +31,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <TextView
-                android:id="@+id/txtDetailNewsDescription"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="10dp"
-                android:letterSpacing="0.04"
-                android:text="Strength and conditioning Volleyball players need strength and power to jump high, hit the ball, and block and spike the ball. Strength training exercises that target the core, legs, and upper body can help build muscle and increase force development.  Plyometric training Exercises like box jumps, jump squats, and burpees can help improve explosiveness and jumping ability.  Agility and footwork drills Drills that help players move quickly and change direction can improve their performance on the court.  Ball control exercises Drills that focus on passing, setting, and serving can help develop ball control.  Mental toughness training Techniques like visualization, positive self-talk, and strategic game simulations can help improve mental toughness.  Flexibility and mobility Regular stretching and mobility exercises can help improve flexibility and range of motion.  Blocking Blocking requires good timing, quick reactions, and the ability to read the opposing team's hitters.  "
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imgDetailNews" />
-
-            <ImageView
+    <ImageView
                 android:id="@+id/imgBookmark"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
@@ -78,7 +51,71 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/back_arrow" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+    <ImageView
+        android:id="@+id/imgNewsDetailNoNet"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="100dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/no_wifi" />
+
+    <TextView
+        android:id="@+id/txtNoNewsDetailNet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Interent Connection"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/imgNewsDetailNoNet"
+        app:layout_constraintStart_toStartOf="@+id/imgNewsDetailNoNet"
+        app:layout_constraintTop_toBottomOf="@+id/imgNewsDetailNoNet" />
+
+    <TextView
+        android:id="@+id/txtNewsDetailNoNet2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="Please check you connection and try again later"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/imgNewsDetailNoNet"
+        app:layout_constraintStart_toStartOf="@+id/imgNewsDetailNoNet"
+        app:layout_constraintTop_toBottomOf="@+id/txtNoNewsDetailNet" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgDetailNews">
+
+        <TextView
+            android:id="@+id/txtDetailNewsDescription"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:letterSpacing="0.04"
+            android:text="Description" />
+
+        <TextView
+            android:id="@+id/txtDetailNewsContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="Content" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

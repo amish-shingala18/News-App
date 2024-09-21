@@ -7,13 +7,14 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:orientation="vertical"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/cardView"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imgSampleDelete"
         app:layout_constraintStart_toEndOf="@+id/cardView"
         app:layout_constraintTop_toTopOf="@+id/cardView">
 
@@ -30,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/mainAuthor"
                 android:layout_width="wrap_content"
@@ -37,6 +39,7 @@
                 android:layout_weight="1"
                 android:text="McKindney"
                 android:textSize="12sp" />
+
             <TextView
                 android:id="@+id/mainNewsDate"
                 android:layout_width="wrap_content"
@@ -44,6 +47,7 @@
                 android:layout_weight="1"
                 android:text="●  Feb 27, 2023"
                 android:textSize="12sp" />
+
         </LinearLayout>
     </LinearLayout>
 
@@ -63,7 +67,20 @@
             android:id="@+id/imgMainNews"
             android:layout_width="110dp"
             android:layout_height="90dp"
-            android:scaleType="centerCrop"
-            android:background="@drawable/volley" />
+            android:background="@drawable/quick_news"
+            android:scaleType="centerCrop" />
+
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imgSampleDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        app:srcCompat="@drawable/baseline_delete_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

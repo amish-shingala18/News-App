@@ -4,16 +4,16 @@
     <item
         android:id="@+id/home"
         android:enabled="true"
-        android:icon="@drawable/news_logo"
         android:title="Home"
+        android:icon="@drawable/home"
         app:cnb_backgroundColor="@color/md_theme_primaryContainer"
         app:cnb_iconColor="@color/md_theme_onPrimaryContainer"
-        app:cnb_textColor="@color/md_theme_onPrimaryContainer"/>
+        app:cnb_textColor="@color/md_theme_onPrimaryContainer" />
 
     <item
         android:id="@+id/search"
         android:enabled="true"
-        android:icon="@drawable/news_logo"
+        android:icon="@android:drawable/ic_menu_search"
         android:title="Search"
         app:cnb_backgroundColor="@color/md_theme_primaryContainer"
         app:cnb_iconColor="@color/md_theme_onPrimaryContainer"
@@ -22,8 +22,8 @@
     <item
         android:id="@+id/media"
         android:enabled="true"
-        android:icon="@drawable/news_logo"
         android:title="Media"
+        android:icon="@drawable/baseline_live_tv_24"
         app:cnb_backgroundColor="@color/md_theme_primaryContainer"
         app:cnb_iconColor="@color/md_theme_onPrimaryContainer"
         app:cnb_textColor="@color/md_theme_onPrimaryContainer"/>
@@ -31,7 +31,7 @@
     <item
         android:id="@+id/bookmark"
         android:enabled="true"
-        android:icon="@drawable/news_logo"
+        android:icon="@drawable/baseline_bookmark_border_24"
         android:title="Bookmark"
         app:cnb_backgroundColor="@color/md_theme_primaryContainer"
         app:cnb_iconColor="@color/md_theme_onPrimaryContainer"

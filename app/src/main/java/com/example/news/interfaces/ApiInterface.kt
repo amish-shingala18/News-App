@@ -13,14 +13,6 @@ interface ApiInterface {
         @Query("country") country: String?,
         @Query("apiKey") apiKey: String="78a9b796f1134770865f64bcdec4e2da"
     ): Call<NewsApiModel>
-
-
-//    @GET("v2/top-headlines")
-//    fun getCountryNews(
-//        @Query("country") country: String?,
-//        @Query("apiKey") apiKey: String="78a9b796f1134770865f64bcdec4e2da"
-//    ): Call<NewsApiModel>
-
     @GET("v2/everything")
     fun getCarousalNews(
         @Query("q") q: String?,

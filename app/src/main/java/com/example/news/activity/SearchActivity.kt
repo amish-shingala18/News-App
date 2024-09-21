@@ -10,6 +10,7 @@ import com.example.news.R
 import com.example.news.adapter.NewsApiAdapter
 import com.example.news.databinding.ActivitySearchBinding
 import com.example.news.domain.ApiClient.Companion.getApi
+import com.example.news.domain.ApplicationNetwork
 import com.example.news.interfaces.ApiInterface
 import com.example.news.model.ArticlesItem
 import com.example.news.model.NewsApiModel
@@ -32,9 +33,29 @@ class SearchActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        (application as ApplicationNetwork).liveData.observe(this@SearchActivity){
+            if(it){
+                binding.nestedSearch.visibility = View.VISIBLE
+                binding.imgSearchNoNet.visibility = View.GONE
+                binding.txtNoSearchNet.visibility = View.GONE
+                binding.txtSearchNoNet2.visibility = View.GONE
+            }
+            else{
+                binding.nestedSearch.visibility = View.GONE
+                binding.imgSearchNoNet.visibility = View.VISIBLE
+                binding.txtNoSearchNet.visibility = View.VISIBLE
+                binding.txtSearchNoNet2.visibility = View.VISIBLE
+            }
+        }
         setAdapter()
         searchNews()
+        initClick()
     //searchApiNews(searchingNews)
+    }
+    private fun initClick(){
+        binding.imgSearchBack.setOnClickListener {
+            finish()
+        }
     }
     private fun searchNews(){
         binding.svNews.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
