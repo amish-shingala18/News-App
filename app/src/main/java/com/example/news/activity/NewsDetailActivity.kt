@@ -1,13 +1,11 @@
 package com.example.news.activity
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
 import com.example.news.R
 import com.example.news.databinding.ActivityNewsDetailBinding
-import com.example.news.domain.ApplicationNetwork
 import com.example.news.helper.DbRoomHelper.Companion.db
 import com.example.news.helper.DbRoomHelper.Companion.initDb
 import com.example.news.model.ArticlesTable
@@ -30,31 +28,30 @@ class NewsDetailActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        (application as ApplicationNetwork).liveData.observe(this@NewsDetailActivity){
-            if(it){
-                binding.imgDetailNews.visibility = View.VISIBLE
-                binding.txtDetailNewsTitle.visibility = View.VISIBLE
-                binding.txtDetailNewsDescription.visibility = View.VISIBLE
-                binding.imgBookmark.visibility = View.VISIBLE
-                binding.imgDetailBack.visibility = View.VISIBLE
-                binding.txtDetailNewsContent.visibility = View.VISIBLE
-                binding.imgNewsDetailNoNet.visibility = View.GONE
-                binding.txtNoNewsDetailNet.visibility = View.GONE
-                binding.txtNewsDetailNoNet2.visibility = View.GONE
-
-            }
-            else{
-                binding.imgDetailNews.visibility = View.GONE
-                binding.txtDetailNewsTitle.visibility = View.GONE
-                binding.txtDetailNewsDescription.visibility = View.GONE
-                binding.imgBookmark.visibility = View.GONE
-                binding.imgDetailBack.visibility = View.GONE
-                binding.txtDetailNewsContent.visibility = View.GONE
-                binding.imgNewsDetailNoNet.visibility = View.VISIBLE
-                binding.txtNoNewsDetailNet.visibility = View.VISIBLE
-                binding.txtNewsDetailNoNet2.visibility = View.VISIBLE
-            }
-        }
+//        (application as ApplicationNetwork).liveData.observe(this@NewsDetailActivity){
+//            if(it){
+//                binding.imgDetailNews.visibility = View.VISIBLE
+//                binding.txtDetailNewsTitle.visibility = View.VISIBLE
+//                binding.txtDetailNewsDescription.visibility = View.VISIBLE
+//                binding.imgBookmark.visibility = View.VISIBLE
+//                binding.imgDetailBack.visibility = View.VISIBLE
+//                binding.txtDetailNewsContent.visibility = View.VISIBLE
+//                binding.imgNewsDetailNoNet.visibility = View.GONE
+//                binding.txtNoNewsDetailNet.visibility = View.GONE
+//                binding.txtNewsDetailNoNet2.visibility = View.GONE
+//            }
+//            else{
+//                binding.imgDetailNews.visibility = View.GONE
+//                binding.txtDetailNewsTitle.visibility = View.GONE
+//                binding.txtDetailNewsDescription.visibility = View.GONE
+//                binding.imgBookmark.visibility = View.GONE
+//                binding.imgDetailBack.visibility = View.GONE
+//                binding.txtDetailNewsContent.visibility = View.GONE
+//                binding.imgNewsDetailNoNet.visibility = View.VISIBLE
+//                binding.txtNoNewsDetailNet.visibility = View.VISIBLE
+//                binding.txtNewsDetailNoNet2.visibility = View.VISIBLE
+//            }
+//        }
         initDb(this@NewsDetailActivity)
         initCLick()
         getNewsData()
@@ -65,6 +62,9 @@ class NewsDetailActivity : AppCompatActivity() {
             val articlesTable = ArticlesTable(publishedAt = newsDate,author=newsAuthor,
                 urlToImage=newsImage,description=newsDescription,title=newsTitle)
             db!!.dao().insertBookmark(articlesTable)
+        }
+        binding.imgDetailBack.setOnClickListener {
+            finish()
         }
     }
     private fun getNewsData(){

@@ -2,6 +2,7 @@ package com.example.news.activity
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -35,10 +36,17 @@ class BookmarkActivity : AppCompatActivity() {
     private fun setAdapter(){
         newsAdapter = NewsAdapter(bookmarkList)
         binding.rvBookmark.adapter = newsAdapter
-
     }
     override fun onResume() {
-        if (db!=null){
+        if(db==null){
+            binding.imgEmptyBookmark.visibility=View.VISIBLE
+            binding.txtEmptyBookmark.visibility=View.VISIBLE
+            binding.rvBookmark.visibility=View.GONE
+        }
+        else {
+            binding.imgEmptyBookmark.visibility = View.GONE
+            binding.txtEmptyBookmark.visibility = View.GONE
+            binding.rvBookmark.visibility = View.VISIBLE
             bookmarkList = db!!.dao().readBookmark()
             newsAdapter.dataSetChanged(bookmarkList)
             Log.d("TAG", "onResume: ${bookmarkList.size}")

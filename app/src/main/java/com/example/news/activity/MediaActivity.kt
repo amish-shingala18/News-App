@@ -47,17 +47,34 @@ class MediaActivity : AppCompatActivity() {
         initClick()
     }
     private fun initClick(){
+        mediaApi("cnn")
         binding.cvCNN.setOnClickListener {
             mediaApi("cnn")
+            binding.cvCNN.setBackgroundResource(R.drawable.selected_category)
+            binding.cvESPN.setBackgroundResource(R.drawable.unselected_category)
+            binding.cvBBC.setBackgroundResource(R.drawable.unselected_category)
+            binding.cvNBC.setBackgroundResource(R.drawable.unselected_category)
         }
         binding.cvESPN.setOnClickListener {
             mediaApi("espn")
+            binding.cvCNN.setBackgroundResource(R.drawable.unselected_category)
+            binding.cvESPN.setBackgroundResource(R.drawable.selected_category)
+            binding.cvBBC.setBackgroundResource(R.drawable.unselected_category)
+            binding.cvNBC.setBackgroundResource(R.drawable.unselected_category)
         }
         binding.cvBBC.setOnClickListener {
             mediaApi("bbc-news")
+            binding.cvCNN.setBackgroundResource(R.drawable.unselected_category)
+            binding.cvESPN.setBackgroundResource(R.drawable.unselected_category)
+            binding.cvBBC.setBackgroundResource(R.drawable.selected_category)
+            binding.cvNBC.setBackgroundResource(R.drawable.unselected_category)
         }
         binding.cvNBC.setOnClickListener {
             mediaApi("nbc-news")
+            binding.cvCNN.setBackgroundResource(R.drawable.unselected_category)
+            binding.cvESPN.setBackgroundResource(R.drawable.unselected_category)
+            binding.cvBBC.setBackgroundResource(R.drawable.unselected_category)
+            binding.cvNBC.setBackgroundResource(R.drawable.selected_category)
         }
         binding.imgMediaBack.setOnClickListener {
             finish()

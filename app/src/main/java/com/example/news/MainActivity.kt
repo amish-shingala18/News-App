@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
             }
             else{
                 binding.clMainActivity.visibility=View.GONE
-                binding.menu.visibility=View.GONE
+                binding.menu.visibility=View.VISIBLE
                 binding.imgMainNoNet.visibility=View.VISIBLE
                 binding.txtNoMainNet.visibility=View.VISIBLE
                 binding.txtMainNoNet2.visibility=View.VISIBLE

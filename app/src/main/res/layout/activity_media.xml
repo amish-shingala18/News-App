@@ -32,14 +32,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtCanada">
 
-                <androidx.cardview.widget.CardView
+                <LinearLayout
                     android:id="@+id/cvCNN"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="10dp">
+                    android:padding="5dp"
+                    android:background="@drawable/selected_category"
+                    android:layout_weight="1">
 
                     <ImageView
                         android:id="@+id/imageView3"
@@ -47,16 +48,17 @@
                         android:layout_height="wrap_content"
                         android:scaleType="fitXY"
                         app:srcCompat="@drawable/cnn_news" />
-                </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
-                <androidx.cardview.widget.CardView
+                <LinearLayout
                     android:id="@+id/cvESPN"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="10dp">
+                    android:padding="5dp"
+                    android:background="@drawable/unselected_category"
+                    android:layout_weight="1">
 
                     <ImageView
                         android:id="@+id/imageView7"
@@ -64,16 +66,17 @@
                         android:layout_height="wrap_content"
                         android:scaleType="fitXY"
                         app:srcCompat="@drawable/espn_news" />
-                </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
-                <androidx.cardview.widget.CardView
+                <LinearLayout
                     android:id="@+id/cvBBC"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="10dp">
+                    android:padding="5dp"
+                    android:background="@drawable/unselected_category"
+                    android:layout_weight="1">
 
                     <ImageView
                         android:id="@+id/imageView8"
@@ -81,16 +84,17 @@
                         android:layout_height="wrap_content"
                         android:scaleType="fitXY"
                         app:srcCompat="@drawable/bbc_news" />
-                </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
-                <androidx.cardview.widget.CardView
+                <LinearLayout
                     android:id="@+id/cvNBC"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
-                    android:layout_weight="1"
-                    app:cardCornerRadius="10dp">
+                    android:padding="5dp"
+                    android:background="@drawable/unselected_category"
+                    android:layout_weight="1">
 
                     <ImageView
                         android:id="@+id/imageView9"
@@ -98,7 +102,7 @@
                         android:layout_height="wrap_content"
                         android:scaleType="fitXY"
                         app:srcCompat="@drawable/nbc_news" />
-                </androidx.cardview.widget.CardView>
+                </LinearLayout>
             </LinearLayout>
 
 
