@@ -11,7 +11,6 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.news.MainActivity
 import com.example.news.R
 import com.example.news.helper.CountryHelper
-import com.example.news.helper.SharedHelper
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {

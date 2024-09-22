@@ -4,7 +4,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-//@Entity("NewsTable")
 data class NewsApiModel(
 	val totalResults: Int? = null,
 	val articles: List<ArticlesItem?>? = null,

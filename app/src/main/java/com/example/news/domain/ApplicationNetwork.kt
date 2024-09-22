@@ -30,7 +30,7 @@ class ApplicationNetwork : Application() {
             }
             override fun onLost(network: Network) {
                 liveData.postValue(false)
-                Log.d("TAG", "=====================onAvailable: Internet is On=====================")
+                Log.d("TAG", "=====================onAvailable: Internet is Off=====================")
             }
         })
     }

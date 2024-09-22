@@ -15,9 +15,11 @@ import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.news.activity.BookmarkActivity
 import com.example.news.activity.MediaActivity
+import com.example.news.activity.NewsDetailActivity
 import com.example.news.activity.SearchActivity
 import com.example.news.adapter.NewsApiAdapter
 import com.example.news.databinding.ActivityMainBinding
@@ -61,19 +63,19 @@ class MainActivity : AppCompatActivity() {
             binding.imgSetFlag.setImageResource(R.drawable.australia_flag)
         }
         if(selectedCountry=="cn"){
-            binding.txtSetName.text="CHINA"
+            binding.txtSetName.text="CHN"
             binding.imgSetFlag.setImageResource(R.drawable.china_flag)
         }
         if(selectedCountry=="jp"){
-            binding.txtSetName.text="JAPAN"
+            binding.txtSetName.text="JPN"
             binding.imgSetFlag.setImageResource(R.drawable.japan_flag)
         }
         if(selectedCountry=="ca"){
-            binding.txtSetName.text="CND"
+            binding.txtSetName.text="CAN"
             binding.imgSetFlag.setImageResource(R.drawable.canada_flag)
         }
         if(selectedCountry=="us"){
-            binding.txtSetName.text="US"
+            binding.txtSetName.text="USA"
             binding.imgSetFlag.setImageResource(R.drawable.us_flag)
         }
         setUpImageSlider()
@@ -116,7 +118,6 @@ class MainActivity : AppCompatActivity() {
                     }else {
                         binding.imgMainNoResult.visibility=View.GONE
                         val l1 = response.body()!!.articles as MutableList<ArticlesItem>
-
                         newsList = l1.filter {
                             it.title!="[Removed]"
                         }.toMutableList()
@@ -146,6 +147,19 @@ class MainActivity : AppCompatActivity() {
                         }
                         if (imageList.isNotEmpty()) {
                             binding.imgSlider.setImageList(imageList, ScaleTypes.FIT)
+                            binding.imgSlider.setItemClickListener(object : ItemClickListener {
+                                override fun onItemSelected(position: Int) {
+                                    val intentList = imageList as ArrayList<ArticlesItem>
+                                    val intent = Intent(this@MainActivity, NewsDetailActivity::class.java)
+                                    intent.putExtra("newsTitle",intentList[position].title)
+                                    intent.putExtra("newsDescription",intentList[position].description)
+                                    intent.putExtra("newsImage",intentList[position].urlToImage)
+                                    intent.putExtra("newsDate",intentList[position].publishedAt)
+                                    intent.putExtra("newsAuthor",intentList[position].author)
+                                    intent.putExtra("newsContent",intentList[position].content)
+                                    startActivity(intent)
+                                }
+                            })
                         }
                     }
                 }

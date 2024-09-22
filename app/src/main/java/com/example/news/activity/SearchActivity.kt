@@ -82,6 +82,10 @@ private fun searchApiNews(search: String){
                     } else {
                         newsApiAdapter.updateList(response.body()!!.articles as MutableList<ArticlesItem>)
                         newsSearchList = response.body()!!.articles as MutableList<ArticlesItem>
+                        val l1 = response.body()!!.articles as MutableList<ArticlesItem>
+                        newsSearchList = l1.filter {
+                            it.title!="[Removed]"
+                        }.toMutableList()
                         setAdapter()
                     }
                 }

@@ -49,11 +49,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="225dp"
                         android:background="@drawable/quick_news"
-                        android:overScrollMode="always"
+                        android:overScrollMode="ifContentScrolls"
                         app:iss_auto_cycle="true"
                         app:iss_period="2000"
-                        app:iss_selected_dot="@drawable/default_selected_dot"
-                        app:iss_unselected_dot="@drawable/default_unselected_dot"
                         tools:ignore="MissingConstraints" />
                 </androidx.cardview.widget.CardView>
 
@@ -170,8 +168,8 @@
                                 android:id="@+id/textGeneral"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="8dp"
                                 android:textColor="@color/bottom_nav"
+                                android:layout_margin="8dp"
                                 android:text="General" />
                         </LinearLayout>
 
