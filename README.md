@@ -32,9 +32,9 @@ The **News App** is an Android application designed to keep users updated with t
 ## 📸 Screenshots
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
   <img src="https://github.com/user-attachments/assets/9ac8a3c7-882d-400c-bf7a-be7fc7474514" width="200" height="400" style="margin: 5px;"/>
-  <img src="https://github.com/user-attachments/assets/0724a0bd-d341-495a-a0c4-9bbdac6b9bdc" width="200" height="400" style="margin: 5px;"/>
+  <img src="https://github.com/user-attachments/assets/72e8e73e-b950-4476-806a-86e3b377f9b6" width="200" height="400" style="margin: 5px;"/>
   <img src="https://github.com/user-attachments/assets/02837eba-e1c1-42e0-b875-f4bd4a7babda" width="200" height="400" style="margin: 5px;"/>
-  <img src="https://github.com/user-attachments/assets/330030af-7a39-4a55-8e63-66d56f718805" width="200" height="400" style="margin: 5px;"/>
+  <img src="https://github.com/user-attachments/assets/a8999798-97b5-49fe-963f-2b52759274e7" width="200" height="400" style="margin: 5px;"/>
   <img src="https://github.com/user-attachments/assets/7c33a9fa-eab6-4e5f-a9da-393b2bf0e369" width="200" height="400" style="margin: 5px;"/>
   <img src="https://github.com/user-attachments/assets/a8b0caf0-4974-4c58-bc3f-a1108fbd82e9" width="200" height="400" style="margin: 5px;"/>
   <img src="https://github.com/user-attachments/assets/3b4fcba2-13f1-4293-ae17-2f92ab0b8667" width="200" height="400" style="margin: 5px;"/>
