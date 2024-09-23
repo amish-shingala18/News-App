@@ -104,8 +104,10 @@ class MainActivity : AppCompatActivity() {
     }
     private fun getCountryApi(categories:String){
         val retrofit=getApi().create(ApiInterface::class.java)
-        retrofit.getCategoryNews(category = categories, country = selectedCountry).enqueue(object : Callback<NewsApiModel> {
+        retrofit.getCategoryNews(category = categories, country = "us").enqueue(object : Callback<NewsApiModel> {
             override fun onResponse(call: Call<NewsApiModel>, response: Response<NewsApiModel>) {
+                Log.e("Success Error", "onFailure: =============== ${response}")
+
                 if (response.isSuccessful){
                     if(response.body()!!.articles!!.isEmpty()){
                         binding.menu.visibility=View.VISIBLE
@@ -125,6 +127,11 @@ class MainActivity : AppCompatActivity() {
                         binding.rvNews.adapter = newsApiAdapter
                         Log.d("TAG", "onResponse: ${response.body()}")
                     }
+                }
+                else
+                {
+                    Log.e("Success Error", "onFailure: ${response.errorBody()}")
+
                 }
             }
             override fun onFailure(call: Call<NewsApiModel>, t: Throwable) {
@@ -202,11 +209,11 @@ class MainActivity : AppCompatActivity() {
             binding.cvBusinessCat.setBackgroundResource(R.drawable.unselected_category)
             binding.cvHealthCat.setBackgroundResource(R.drawable.unselected_category)
             binding.cvSportsCat.setBackgroundResource(R.drawable.unselected_category)
-            binding.textGeneral.setTextColor(R.color.bottom_nav)
-            binding.textEnter.setTextColor(R.color.text_change)
-            binding.textBusiness.setTextColor(R.color.text_change)
-            binding.textHealth.setTextColor(R.color.text_change)
-            binding.textSports.setTextColor(R.color.text_change)
+            binding.textGeneral.setTextColor(getColor(R.color.bottom_nav))
+            binding.textEnter.setTextColor(getColor(R.color.text_change))
+            binding.textBusiness.setTextColor(getColor(R.color.text_change))
+            binding.textHealth.setTextColor(getColor(R.color.text_change))
+            binding.textSports.setTextColor(getColor(R.color.text_change))
         }
         binding.cvEntertainmentCat.setOnClickListener {
             getCountryApi("entertainment")
@@ -304,6 +311,7 @@ class MainActivity : AppCompatActivity() {
             selectedCountry="in"
             countryHelper.setCountry(this@MainActivity,selectedCountry!!)
             selectedCountry=countryHelper.getCountry(this@MainActivity)
+
             dialog.dismiss()
         }
         dialogAustralia.setOnClickListener {

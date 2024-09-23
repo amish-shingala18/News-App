@@ -10,6 +10,7 @@ import com.example.news.R
 import com.example.news.adapter.NewsAdapter
 import com.example.news.databinding.ActivityBookmarkBinding
 import com.example.news.helper.DbRoomHelper.Companion.db
+import com.example.news.helper.DbRoomHelper.Companion.initDb
 import com.example.news.model.ArticlesTable
 
 class BookmarkActivity : AppCompatActivity() {
@@ -25,6 +26,7 @@ class BookmarkActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        initDb(this)
         setAdapter()
         initClick()
     }
@@ -36,21 +38,21 @@ class BookmarkActivity : AppCompatActivity() {
     private fun setAdapter(){
         newsAdapter = NewsAdapter(bookmarkList)
         binding.rvBookmark.adapter = newsAdapter
-    }
-    override fun onResume() {
-        if(db==null){
+        if(bookmarkList.isEmpty()){
             binding.imgEmptyBookmark.visibility=View.VISIBLE
             binding.txtEmptyBookmark.visibility=View.VISIBLE
             binding.rvBookmark.visibility=View.GONE
         }
-        else {
+        else{
             binding.imgEmptyBookmark.visibility = View.GONE
             binding.txtEmptyBookmark.visibility = View.GONE
             binding.rvBookmark.visibility = View.VISIBLE
+        }
+    }
+    override fun onResume() {
             bookmarkList = db!!.dao().readBookmark()
             newsAdapter.dataSetChanged(bookmarkList)
             Log.d("TAG", "onResume: ${bookmarkList.size}")
-        }
         super.onResume()
     }
 }
